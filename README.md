@@ -10,8 +10,9 @@ Aplikasi ini memungkinkan pengguna untuk melakukan konversi dan resizing berkas 
 
 - Konversi PDF ke PPTX
 - Konversi WORD ke PDF
-- Konversi WORD ke PPTX
-- Resize berkas
+- Konversi WORD ke 
+- Berkas Apapun dan convert apapun di Office 
+- Resize berkas Apapun di Office (menjadi 1.8Mb dari ukuran asli)
 
 ## Instalasi
 
@@ -24,7 +25,7 @@ Pastikan Anda telah menginstal Node.js dan npm sebelum memulai.
 1. **Clone repositori:**
 
    ```bash
-   git clone https://github.com/username/repo.git
+   git clone https://github.com/AnggaPython/Convert-File---Resize-File.git
    cd repo
 2. npm install
 
