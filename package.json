@@ -1,0 +1,48 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "A file converter application using Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^15.3.0",
+    "electron-builder": "^22.14.5"
+  },
+  "build": {
+    "appId": "com.example.myapp",
+    "files": [
+      "main.js",
+      "index.html",
+      "package.json",
+      "node_modules/**/*",
+      "src/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  },
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "fs": "^0.0.1-security",
+    "html-to-text": "^9.0.5",
+    "mammoth": "^1.8.0",
+    "officegen": "^0.6.5",
+    "path": "^0.12.7",
+    "pdf-lib": "^1.17.1",
+    "pdf-parse": "^1.1.1",
+    "pptxgenjs": "^3.12.0",
+    "quill": "^2.0.2"
+  }
+}

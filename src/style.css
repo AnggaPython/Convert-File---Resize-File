@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('../src/galaxy.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    border: 2px dashed #ecddddda;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #ffffff; /* putih */
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    animation: glow-border 4s infinite alternate; /* Animasi glow-border */
+}
+
+@keyframes glow-border {
+    0% {
+        box-shadow: 0 0 10px 0 rgba(255, 0, 0, 0.5); /* Warna pertama */
+    }
+    50% {
+        box-shadow: 0 0 20px 5px rgba(0, 255, 0, 0.7); /* Warna kedua */
+    }
+    100% {
+        box-shadow: 0 0 10px 0 rgba(0, 0, 255, 0.5); /* Warna ketiga */
+    }
+}
+
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.file-input {
+    display: none;
+}
+
+.options {
+    margin: 20px 0;
+}
+
+#progressContainer, #downloadContainer {
+    margin: 20px 0;
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electron Word Clone</title>
+    <link rel="stylesheet" href="wordstyle.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #333; /* Dark mode background */
+            color: #eee; /* Light text on dark background */
+            margin: 0;
+        }
+
+        #navigation {
+            background-color: #555; /* Darker navbar background */
+            width: 100%;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        #navigation ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        #navigation ul li {
+            margin: 0 10px;
+        }
+
+        #navigation ul li a {
+            color: #eee; /* Light text */
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #navigation ul li a:hover {
+            background-color: #777; /* Darker hover background */
+        }
+
+        #toolbar {
+            background-color: #444; /* Dark toolbar background */
+            padding: 10px 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 60px; /* Adjust margin for navbar */
+            flex-wrap: wrap; /* Wrap toolbar items */
+        }
+
+        #toolbar button, #toolbar select, #toolbar input {
+            margin: 5px;
+            padding: 8px 12px;
+            background-color: #007bff; /* Blue accent */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        #toolbar button:hover, #toolbar select:hover, #toolbar input:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        #editor {
+            width: 80%;
+            max-width: 800px;
+            margin-top: 100px; /* Adjust margin for navbar and toolbar */
+            padding: 20px;
+            background-color: #555; /* Dark editor background */
+            color: #eee; /* Light text on dark background */
+            border: 1px solid #777; /* Darker border */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            min-height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navigation">
+        <ul>
+            <li><a href="index.html">CONVERT</a></li>
+            <li><a href="word.html">WORD</a></li>
+            <li><a href="#">MUSIK</li>
+            <li><a href="#">CHAT</a></li>
+            <li><a href="#">GAME</a></li>
+            <li><a href="#">PANDUAN</a></li>
+        </ul>
+    </div>
+    <div id="toolbar">
+        <button onclick="execCmd('bold')">Bold</button>
+        <button onclick="execCmd('italic')">Italic</button>
+        <button onclick="execCmd('underline')">Underline</button>
+        <button onclick="execCmd('justifyLeft')">Left</button>
+        <button onclick="execCmd('justifyCenter')">Center</button>
+        <button onclick="execCmd('justifyRight')">Right</button>
+        <button onclick="execCmd('insertUnorderedList')">UL</button>
+        <button onclick="execCmd('insertOrderedList')">OL</button>
+        <button onclick="execCmd('undo')">Undo</button>
+        <button onclick="execCmd('redo')">Redo</button>
+        <input type="color" onchange="execCmd('foreColor', this.value)">
+        <select onchange="execCmd('fontName', this.value)">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Times New Roman">Times New Roman</option>
+        </select>
+        <select onchange="execCmd('fontSize', this.value)">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+        </select>
+        <select onchange="execCmd('lineHeight', this.value)">
+            <option value="1">1.0</option>
+            <option value="1.15">1.15</option>
+            <option value="1.5">1.5</option>
+            <option value="2">2.0</option>
+            <option value="2.5">2.5</option>
+            <option value="3">3.0</option>
+        </select>
+        <input type="file" id="fileInput" accept="image/*" onchange="insertImage()">
+    </div>
+    <div id="editor" contenteditable="true"></div>
+    <script src="wordrenderer.js"></script>
+</body>
+</html>
